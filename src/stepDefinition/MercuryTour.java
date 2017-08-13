@@ -19,14 +19,14 @@ public class MercuryTour {
 		new BasePage(driver);
 	}
 
-	@Then("^enter user id$")
-	public void enter_user_id() throws Throwable {
-	    MercuryTour_Page.userNameInput().sendKeys("mercury");
+	@Then("^enter user id as \"([^\"]*)\"$")
+	public void enter_user_id(String userName) throws Throwable {
+	    MercuryTour_Page.userNameInput().sendKeys(userName);
 	}
 
-	@Then("^enter password$")
-	public void enter_password() throws Throwable {
-	    MercuryTour_Page.passwordInput().sendKeys("mercury");
+	@Then("^enter password as \"([^\"]*)\"$")
+	public void enter_password(String password) throws Throwable {
+	    MercuryTour_Page.passwordInput().sendKeys(password);
 	}
 
 	@Then("^click login$")

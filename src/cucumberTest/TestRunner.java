@@ -6,8 +6,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "features/MercuryTour.feature",
-		format={"pretty","html:target/Reports"}
+		features = "features",
+		glue = {"stepDefinition"}
 		)
 
 public class TestRunner {
