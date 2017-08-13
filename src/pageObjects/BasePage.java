@@ -2,11 +2,11 @@ package pageObjects;
 
 import org.openqa.selenium.WebDriver;
 
-public class BaseClass {
+public class BasePage {
     public static WebDriver driver;
     public static boolean bResult;
-    public BaseClass(WebDriver driver) {
-        BaseClass.driver = driver;
-        BaseClass.bResult = true;
+    public BasePage(WebDriver driver) {
+        BasePage.driver = driver;
+        BasePage.bResult = true;
     }
 }

@@ -1,22 +1,22 @@
-package cucumberTest;
+package stepDefinition;
 
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import pageObjects.BaseClass;
+import pageObjects.BasePage;
 import pageObjects.MercuryTour_Page;
 import utility.Constant;
 import utility.Utils;;
 
-public class stepDefinition {
+public class MercuryTour {
 	
 	public static WebDriver driver;
 	
 	@Given("^url opened$")
 	public void url_opened() throws Throwable {
 		driver = Utils.openBrowser(Constant.url, "chrome");
-		new BaseClass(driver);
+		new BasePage(driver);
 	}
 
 	@Then("^enter user id$")

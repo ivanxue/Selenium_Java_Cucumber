@@ -6,7 +6,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features = "src/cucumberTest/MercuryTour.feature",
+		features = "features/MercuryTour.feature",
 		format={"pretty","html:target/Reports"}
 		)
 

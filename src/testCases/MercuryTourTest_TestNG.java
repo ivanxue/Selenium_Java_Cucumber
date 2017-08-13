@@ -6,7 +6,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pageObjects.BaseClass;
+import pageObjects.BasePage;
 import pageObjects.MercuryTour_Page;
 import utility.Constant;
 import utility.ExcelUtils;
@@ -52,7 +52,7 @@ public class MercuryTourTest_TestNG {
 			// call openBrowser function to launch different browser which is indicated in
 			// data file
 			driver = Utils.openBrowser(Constant.url, sBrowserName);
-			new BaseClass(driver);
+			new BasePage(driver);
 
 			// get test data from the data file based on row, column and sheet name
 			sUserName = ExcelUtils.getCellData(i, Constant.Col_UserName, "MercuryTour");

@@ -8,7 +8,7 @@ import org.testng.Assert;
 import utility.Log;
 import utility.Utils;
 
-public class MercuryTour_Page extends BaseClass {
+public class MercuryTour_Page extends BasePage {
 
 	private static WebElement element = null;
 
