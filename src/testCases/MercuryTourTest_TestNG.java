@@ -7,7 +7,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import pageObjects.BasePage;
-import pageObjects.MercuryTour_Page;
+import pageObjects.MercuryTour_BookFlightPage;
+import pageObjects.MercuryTour_ConfirmPage;
+import pageObjects.MercuryTour_FindFlightsPage;
+import pageObjects.MercuryTour_LoginPage;
+import pageObjects.MercuryTour_SelectFlightPage;
 import utility.Constant;
 import utility.ExcelUtils;
 import utility.Log;
@@ -64,30 +68,30 @@ public class MercuryTourTest_TestNG {
 			sCreditNumber = ExcelUtils.getCellData(i, Constant.Col_CreditNumber, "MercuryTour");
 
 			// wait the page to be loaded completely and verify the page title
-			Utils.waitForElement(MercuryTour_Page.userNameInput());
-			MercuryTour_Page.validPageTitle("Welcome: Mercury Tours");
+			Utils.waitForElement(MercuryTour_LoginPage.userNameInput());
+			Utils.validPageTitle("Welcome: Mercury Tours");
 
-			MercuryTour_Page.login(sUserName, sPassword);
+			MercuryTour_LoginPage.login(sUserName, sPassword);
 
-			Utils.waitForElement(MercuryTour_Page.tripTypeRadio());
-			MercuryTour_Page.validPageTitle("Find a Flight: Mercury Tours:");
+			Utils.waitForElement(MercuryTour_FindFlightsPage.tripTypeRadio());
+			Utils.validPageTitle("Find a Flight: Mercury Tours:");
 
-			MercuryTour_Page.findFlight(sDepartFrom, sArriveIn);
+			MercuryTour_FindFlightsPage.findFlight(sDepartFrom, sArriveIn);
 
-			Utils.waitForElement(MercuryTour_Page.continueReserveBtn());
-			MercuryTour_Page.validPageTitle("Select a Flight: Mercury Tours");
+			Utils.waitForElement(MercuryTour_SelectFlightPage.continueReserveBtn());
+			Utils.validPageTitle("Select a Flight: Mercury Tours");
 
-			MercuryTour_Page.continueReserveBtn().click();
+			MercuryTour_SelectFlightPage.continueReserveBtn().click();
 
-			Utils.waitForElement(MercuryTour_Page.firstNameInput());
-			MercuryTour_Page.validPageTitle("Book a Flight: Mercury Tours");
+			Utils.waitForElement(MercuryTour_BookFlightPage.firstNameInput());
+			Utils.validPageTitle("Book a Flight: Mercury Tours");
 
-			MercuryTour_Page.bookFlight(sFirstName, sLastName, sCreditNumber);
+			MercuryTour_BookFlightPage.bookFlight(sFirstName, sLastName, sCreditNumber);
 
-			Utils.waitForElement(MercuryTour_Page.backToHomeBtn());
-			MercuryTour_Page.validPageTitle("Flight Confirmation: Mercury Tours");
+			Utils.waitForElement(MercuryTour_ConfirmPage.backToHomeBtn());
+			Utils.validPageTitle("Flight Confirmation: Mercury Tours");
 
-			MercuryTour_Page.reviewFlight();
+			MercuryTour_ConfirmPage.reviewFlight();
 		}
 		
 		if (driver != null) {

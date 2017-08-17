@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import java.io.File;
 import java.util.List;
@@ -36,6 +37,13 @@ public class Utils {
 			Log.error("Class Utils | Method OpenBrowser | Exception desc : " + error.getMessage());
 		}
 		return driver;
+	}
+	
+	public static void validPageTitle(String expectedPageTitle) {
+		String strPageTitle = driver.getTitle();
+		System.out.println("Actual Page title: - " + strPageTitle);
+		System.out.println("Expected Page title: - " + expectedPageTitle);
+		Assert.assertTrue(strPageTitle.equalsIgnoreCase(expectedPageTitle), "Page title doesn't match");
 	}
 
 	public static void waitForElement(WebElement element) {

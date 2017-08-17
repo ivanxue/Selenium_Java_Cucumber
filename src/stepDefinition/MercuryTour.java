@@ -6,7 +6,7 @@ import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import pageObjects.BasePage;
-import pageObjects.MercuryTour_Page;
+import pageObjects.MercuryTour_LoginPage;
 import utility.Constant;
 import utility.Utils;;
 
@@ -22,17 +22,17 @@ public class MercuryTour {
 
 	@Then("^enter user id as \"([^\"]*)\"$")
 	public void enter_user_id(String userName) throws Throwable {
-	    MercuryTour_Page.userNameInput().sendKeys(userName);
+	    MercuryTour_LoginPage.userNameInput().sendKeys(userName);
 	}
 
 	@Then("^enter password as \"([^\"]*)\"$")
 	public void enter_password(String password) throws Throwable {
-	    MercuryTour_Page.passwordInput().sendKeys(password);
+	    MercuryTour_LoginPage.passwordInput().sendKeys(password);
 	}
 
 	@Then("^click login$")
 	public void click_login() throws Throwable {
-	    MercuryTour_Page.signInBtn().click();
+	    MercuryTour_LoginPage.signInBtn().click();
 	}
 
 	@Then("^close browser$")
