@@ -92,12 +92,13 @@ public class MercuryTourTest_TestNG {
 		
 		if (driver != null) {
 			System.out.println("Closing browser");
-			driver.quit();
+			driver.close();
 		}
 	}
 
 	@AfterMethod
 	public static void tearDown() throws Exception {
+		driver.quit();
 		Log.endTestCase();
 	}
 }

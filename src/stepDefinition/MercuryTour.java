@@ -2,6 +2,7 @@ package stepDefinition;
 
 import org.openqa.selenium.WebDriver;
 
+import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import pageObjects.BasePage;
@@ -37,6 +38,11 @@ public class MercuryTour {
 	@Then("^close browser$")
 	public void close_browser() throws Throwable {
 	    driver.quit();
+	}
+	
+	@After
+	public void tearDown() {
+		driver.close();
 	}
 
 }
