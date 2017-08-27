@@ -1,25 +1,15 @@
-2017-08-27 20:51:39,714 INFO  [Log] **************************************************************************************** 
-2017-08-27 20:51:39,714 INFO  [Log] **************************************************************************************** 
-2017-08-27 20:51:39,714 INFO  [Log] $$$$$$$$$$$$$$$$$$$$$              MercuryTourTest_TestNG       $$$$$$$$$$$$$$$$$$$$$$$$$ 
-2017-08-27 20:51:39,714 INFO  [Log] **************************************************************************************** 
-2017-08-27 20:51:39,714 INFO  [Log] **************************************************************************************** 
-2017-08-27 20:51:41,536 INFO  [Log] New driver instantiated 
-2017-08-27 20:51:41,542 INFO  [Log] Implicit wait applied on the driver for 20 seconds 
-2017-08-27 20:51:43,584 INFO  [Log] Navigate to http://newtours.demoaut.com/mercurypurchase.php successfully 
-2017-08-27 20:51:43,618 INFO  [Log] User Name field is found on the page 
-2017-08-27 20:51:43,679 INFO  [Log] User Name field is found on the page 
-2017-08-27 20:51:43,776 INFO  [Log] Password field is found on the page 
-2017-08-27 20:51:43,856 INFO  [Log] Sign-in button is found on the page 
-2017-08-27 20:51:46,686 INFO  [Log] Trip Type radio button is found on the page 
-2017-08-27 20:51:47,186 INFO  [Log] Continue button at Find Flights is found on the page 
-2017-08-27 20:51:47,761 INFO  [Log] Continue button at Reserve Flights is found on the page 
-2017-08-27 20:51:47,811 INFO  [Log] Continue button at Reserve Flights is found on the page 
-2017-08-27 20:51:48,727 INFO  [Log] First Name field is found on the page 
-2017-08-27 20:51:48,780 INFO  [Log] First Name field is found on the page 
-2017-08-27 20:51:48,888 INFO  [Log] Last Name field is found on the page 
-2017-08-27 20:51:48,980 INFO  [Log] Credit Card number field is found on the page 
-2017-08-27 20:51:49,046 INFO  [Log] Ticketless Travel checkbox is found on the page 
-2017-08-27 20:51:49,132 INFO  [Log] Secure Purchase button is found on the page 
-2017-08-27 20:51:49,880 INFO  [Log] Back To Home button is found on the page 
-2017-08-27 20:51:49,936 INFO  [Log] Back To Home button is found on the page 
-2017-08-27 20:51:50,608 INFO  [Log] XXXXXXXXXXXXXXXXXXXXXXX          -E---N---D-            XXXXXXXXXXXXXXXXXXXXXX 
+2017-08-27 21:43:57,109 INFO  [Log] **************************************************************************************** 
+2017-08-27 21:43:57,110 INFO  [Log] **************************************************************************************** 
+2017-08-27 21:43:57,110 INFO  [Log] $$$$$$$$$$$$$$$$$$$$$              MercuryTourTest_TestNG       $$$$$$$$$$$$$$$$$$$$$$$$$ 
+2017-08-27 21:43:57,110 INFO  [Log] **************************************************************************************** 
+2017-08-27 21:43:57,110 INFO  [Log] **************************************************************************************** 
+2017-08-27 21:44:00,550 INFO  [Log] New driver instantiated 
+2017-08-27 21:44:00,566 INFO  [Log] Implicit wait applied on the driver for 20 seconds 
+2017-08-27 21:44:00,907 ERROR [Log] Class Utils | Method OpenBrowser | Exception desc : Failed to find width field
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'ivanxue', ip: 'fd88:cefa:8c34:e500:a19e:31a0:588d:59eb', os.name: 'Mac OS X', os.arch: 'x86_64', os.version: '10.12.6', java.version: '1.8.0_111'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=/var/folders/3j/j31g444d6wddl5rscz_9fcm00000gn/T/rust_mozprofile.bdOyKaYJyHQ5, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=false, browserVersion=54.0.1, platformVersion=16.7.0, moz:processID=6231.0, browserName=firefox, javascriptEnabled=true, platformName=darwin}]
+Session ID: 15c896e5-08c8-1141-b4db-5afcb04e08fc 
+2017-08-27 21:44:20,932 ERROR [Log] User Name field is not found on the page 
+2017-08-27 21:44:21,126 INFO  [Log] XXXXXXXXXXXXXXXXXXXXXXX          -E---N---D-            XXXXXXXXXXXXXXXXXXXXXX 
