@@ -32,8 +32,12 @@ public class Browser {
                 System.setProperty("webdriver.gecko.driver", Constant.driverPath + "geckodriver");
                 return	driver = new FirefoxDriver();
             case "chrome":
+            		ChromeOptions options = new ChromeOptions();
+            		options.addArguments("no-sandbox");
                 System.setProperty("webdriver.chrome.driver", Constant.driverPath + "chromedriver");
                 return	driver = new ChromeDriver();
+            case "htmlunit":
+                return	driver = new HtmlUnitDriver();
             case "safari":
                 return	driver = new SafariDriver();
             case "edge":
