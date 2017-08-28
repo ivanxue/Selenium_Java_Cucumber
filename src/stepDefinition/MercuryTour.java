@@ -37,12 +37,12 @@ public class MercuryTour {
 
 	@Then("^close browser$")
 	public void close_browser() throws Throwable {
-	    driver.quit();
+	    driver.close();
 	}
 	
 	@After
 	public void tearDown() {
-		driver.close();
+		driver.quit();
 	}
 
 }
