@@ -21,6 +21,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.12</version>
 				<configuration>
+					<excludes><exclude>src/cucumberTest/TestRunner.java</exclude>
+					<exclude>src/stepDefinition/MercuryTour.java</exclude>
+					</excludes>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>
