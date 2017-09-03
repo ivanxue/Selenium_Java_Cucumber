@@ -5,8 +5,8 @@ import org.openqa.selenium.WebDriver;
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import pageObjects.BasePage;
-import pageObjects.MercuryTour_LoginPage;
+import pages.BasePage;
+import pages.MercuryTour_LoginPage;
 import utility.Constant;
 import utility.Utils;;
 
