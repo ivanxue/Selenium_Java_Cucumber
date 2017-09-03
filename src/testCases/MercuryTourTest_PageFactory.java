@@ -6,7 +6,11 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import pages.BasePage;
+import pageFactory.BookFlightPage;
+import pageFactory.ConfirmationPage;
+import pageFactory.FindFlightsPage;
+import pageFactory.LoginPage;
+import pageFactory.SelectFlightPage;
 import pages.MercuryTour_BookFlightPage;
 import pages.MercuryTour_ConfirmPage;
 import pages.MercuryTour_FindFlightsPage;
@@ -17,7 +21,7 @@ import utility.ExcelUtils;
 import utility.Log;
 import utility.Utils;
 
-public class MercuryTourTest_TestNG {
+public class MercuryTourTest_PageFactory {
 	public static WebDriver driver;
 	private String sTestCaseName;
 	private int iRowCount;
@@ -56,7 +60,6 @@ public class MercuryTourTest_TestNG {
 			// call openBrowser function to launch different browser which is indicated in
 			// data file
 			driver = Utils.openBrowser(Constant.url, sBrowserName);
-			new BasePage(driver);
 
 			// get test data from the data file based on row, column and sheet name
 			sUserName = ExcelUtils.getCellData(i, Constant.Col_UserName, "MercuryTour");
@@ -66,32 +69,28 @@ public class MercuryTourTest_TestNG {
 			sFirstName = ExcelUtils.getCellData(i, Constant.Col_FirstName, "MercuryTour");
 			sLastName = ExcelUtils.getCellData(i, Constant.Col_LastName, "MercuryTour");
 			sCreditNumber = ExcelUtils.getCellData(i, Constant.Col_CreditNumber, "MercuryTour");
+			
+			LoginPage objLogin = new LoginPage(driver);
+			FindFlightsPage objFindFlight = new FindFlightsPage(driver);
+			SelectFlightPage objSelectFlight = new SelectFlightPage(driver);
+			BookFlightPage objBookFlight = new BookFlightPage(driver);
+			ConfirmationPage objConfirmFlight = new ConfirmationPage(driver);
 
-			// wait the page to be loaded completely and verify the page title
-			Utils.waitForElement(MercuryTour_LoginPage.userNameInput());
 			Utils.validPageTitle("Welcome: Mercury Tours");
 
-			MercuryTour_LoginPage.login(sUserName, sPassword);
-
-			Utils.waitForElement(MercuryTour_FindFlightsPage.tripTypeRadio());
+			objLogin.login(sUserName, sPassword);
 			Utils.validPageTitle("Find a Flight: Mercury Tours:");
 
-			MercuryTour_FindFlightsPage.findFlight(sDepartFrom, sArriveIn);
-
-			Utils.waitForElement(MercuryTour_SelectFlightPage.continueReserveBtn());
+			objFindFlight.findFlight(sDepartFrom, sArriveIn);
 			Utils.validPageTitle("Select a Flight: Mercury Tours");
 
-			MercuryTour_SelectFlightPage.continueReserveBtn().click();
-
-			Utils.waitForElement(MercuryTour_BookFlightPage.firstNameInput());
+			objSelectFlight.reserveFlight();
 			Utils.validPageTitle("Book a Flight: Mercury Tours");
 
-			MercuryTour_BookFlightPage.bookFlight(sFirstName, sLastName, sCreditNumber);
-
-			Utils.waitForElement(MercuryTour_ConfirmPage.backToHomeBtn());
+			objBookFlight.bookFlight(sFirstName, sLastName, sCreditNumber);
 			Utils.validPageTitle("Flight Confirmation: Mercury Tours");
-
-			MercuryTour_ConfirmPage.reviewFlight();
+			
+			objConfirmFlight.reviewFlight();
 		}
 		
 		if (driver != null) {
