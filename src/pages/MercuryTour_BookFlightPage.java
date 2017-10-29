@@ -9,6 +9,11 @@ import utility.Log;
 public class MercuryTour_BookFlightPage extends BasePage {
 	
 	private static WebElement element = null;
+	private static By firstName = By.name("passFirst0");
+	private static By lastName = By.name("passLast0");
+	private static By creditNumber = By.name("creditnumber");
+	private static By ticketlessTravel = By.name("ticketLess");
+	private static By securePurchase = By.name("buyFlights");
 	
 	public MercuryTour_BookFlightPage(WebDriver driver) {
 		super(driver);
@@ -17,7 +22,7 @@ public class MercuryTour_BookFlightPage extends BasePage {
 	
 	public static WebElement firstNameInput() {
 		try {
-			element = driver.findElement(By.name("passFirst0"));
+			element = driver.findElement(firstName);
 			Log.info("First Name field is found on the page");
 		} catch (Exception error) {
 			Log.error("First Name field is not found on the page");
@@ -28,7 +33,7 @@ public class MercuryTour_BookFlightPage extends BasePage {
 
 	public static WebElement lastNameInput() {
 		try {
-			element = driver.findElement(By.name("passLast0"));
+			element = driver.findElement(lastName);
 			Log.info("Last Name field is found on the page");
 		} catch (Exception error) {
 			Log.error("Last Name field is not found on the page");
@@ -39,7 +44,7 @@ public class MercuryTour_BookFlightPage extends BasePage {
 
 	public static WebElement creditNumberInput() {
 		try {
-			element = driver.findElement(By.name("creditnumber"));
+			element = driver.findElement(creditNumber);
 			Log.info("Credit Card number field is found on the page");
 		} catch (Exception error) {
 			Log.error("Credit Card number is not found on the page");
@@ -50,7 +55,7 @@ public class MercuryTour_BookFlightPage extends BasePage {
 
 	public static WebElement ticketlessTravelCheck() {
 		try {
-			element = driver.findElement(By.name("ticketLess"));
+			element = driver.findElement(ticketlessTravel);
 			Log.info("Ticketless Travel checkbox is found on the page");
 		} catch (Exception error) {
 			Log.error("Ticketless Travel checkbox is not found on the page");
@@ -61,7 +66,7 @@ public class MercuryTour_BookFlightPage extends BasePage {
 
 	public static WebElement securePurchaseBtn() {
 		try {
-			element = driver.findElement(By.name("buyFlights"));
+			element = driver.findElement(securePurchase);
 			Log.info("Secure Purchase button is found on the page");
 		} catch (Exception error) {
 			Log.error("Secure Purchase button is not found on the page");

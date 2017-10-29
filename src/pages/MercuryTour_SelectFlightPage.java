@@ -9,6 +9,7 @@ import utility.Log;
 public class MercuryTour_SelectFlightPage extends BasePage {
 	
 	private static WebElement element = null;
+	private static By continueReserve = By.name("reserveFlights");
 	
 	public MercuryTour_SelectFlightPage(WebDriver driver) {
 		super(driver);
@@ -16,7 +17,7 @@ public class MercuryTour_SelectFlightPage extends BasePage {
 
 	public static WebElement continueReserveBtn() {
 		try {
-			element = driver.findElement(By.name("reserveFlights"));
+			element = driver.findElement(continueReserve);
 			Log.info("Continue button at Reserve Flights is found on the page");
 		} catch (Exception error) {
 			Log.error("Continue button at Reserve Flights is not found on the page");
