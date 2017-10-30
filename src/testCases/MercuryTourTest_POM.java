@@ -3,7 +3,10 @@ package testCases;
 import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import pages.BasePage;
@@ -30,7 +33,7 @@ public class MercuryTourTest_POM {
 	private String sLastName;
 	private String sCreditNumber;
 
-	@BeforeMethod
+	@BeforeTest
 	public void beforeMethod() throws Exception {
 
 		DOMConfigurator.configure("log4j.xml");
@@ -45,8 +48,9 @@ public class MercuryTourTest_POM {
 		iRowCount = ExcelUtils.getRowCount("MercuryTour");
 	}
 
+	@Parameters({ "browser" })
 	@Test
-	public void main() throws Exception {
+	public void main(String browser) throws Exception {
 
 		for (int i = 1; i < iRowCount; i++) {
 			// get the browser type from the data file first, including chrome, firefox,
@@ -55,7 +59,7 @@ public class MercuryTourTest_POM {
 
 			// call openBrowser function to launch different browser which is indicated in
 			// data file
-			driver = Utils.openBrowser(Constant.url, sBrowserName);
+			driver = Utils.openBrowser(Constant.url, browser);
 			new BasePage(driver);
 
 			// get test data from the data file based on row, column and sheet name
@@ -96,13 +100,13 @@ public class MercuryTourTest_POM {
 		
 		if (driver != null) {
 			System.out.println("Closing browser");
-			driver.close();
+			driver.quit();
 		}
 	}
 
-	@AfterMethod
+	@AfterTest
 	public static void tearDown() throws Exception {
-		driver.quit();
+//		driver.quit();
 		Log.endTestCase();
 	}
 }

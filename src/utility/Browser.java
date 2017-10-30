@@ -21,8 +21,8 @@ public class Browser {
     public static WebDriver driver;
     
     // remote server configuration in browserstack
-    public static final String USERNAME = "ivanxue1";
-    public static final String AUTOMATE_KEY = "YYQosi7Fa5UYvYxy6rCV";
+    public static final String USERNAME = "feng20";
+    public static final String AUTOMATE_KEY = "bxxkpf34hS1BKKyciXr2";
     public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static DesiredCapabilities caps = new DesiredCapabilities();
@@ -46,10 +46,10 @@ public class Browser {
             System.setProperty("webdriver.edge.driver", Constant.driverPath + "MicrosoftWebDriver.exe");
             return	driver = new EdgeDriver();
             case "Remote":
-            caps.setCapability("browser", "IE");
-            caps.setCapability("browser_version", "7.0");
+            caps.setCapability("browser", "Firefox");
+            caps.setCapability("browser_version", "48.0");
             caps.setCapability("os", "Windows");
-            caps.setCapability("os_version", "XP");
+            caps.setCapability("os_version", "10");
             caps.setCapability("browserstack.debug", "true");
 
             return driver = new RemoteWebDriver(new URL(URL), caps);

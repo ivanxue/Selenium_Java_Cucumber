@@ -1,14 +1,21 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="Main Test Suite" verbose="2">
-
-    <test name="TestNG Test Group">
-        <classes>
-        <class name="testCases.MercuryTourTest_TestNG"/>
-        </classes>
-        <!--<packages>-->
-            <!--<package name="testCases"/>-->
-        <!--</packages>-->
-    </test>
-
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel test suite" parallel="tests">
+<!--   <test name="Firefox Test">
+  <parameter name="browser" value="firefox"/>
+    <classes>
+      <class name="testCases.MercuryTourTest_POM"/>
+    </classes>
+  </test> -->
+  <test name="Test">
+  <parameter name="browser" value="Remote"/>
+    <classes>
+      <class name="testCases.MercuryTourTest_POM"/>
+    </classes>
+  </test>
+<!--   <test name="Remote Test">
+    <parameter name="browser" value="Remote"/>
+    <classes>
+      <class name="testCases.MercuryTourTest_POM"/>
+    </classes>
+  </test> -->
 </suite>

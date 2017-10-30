@@ -28,7 +28,7 @@ public class Utils {
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			Log.info("Implicit wait applied on the driver for 20 seconds");
 
-			driver.manage().window().maximize();
+//			driver.manage().window().maximize();
 
 			driver.get(URL);
 			Log.info("Navigate to " + URL + " successfully");
@@ -44,6 +44,7 @@ public class Utils {
 		System.out.println("Actual Page title: - " + strPageTitle);
 		System.out.println("Expected Page title: - " + expectedPageTitle);
 		Assert.assertTrue(strPageTitle.equalsIgnoreCase(expectedPageTitle), "Page title doesn't match");
+		
 	}
 
 	public static void waitForElement(WebElement element) {
