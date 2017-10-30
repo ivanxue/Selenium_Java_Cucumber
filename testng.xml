@@ -1,21 +1,42 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Parallel test suite" parallel="tests">
-<!--   <test name="Firefox Test">
-  <parameter name="browser" value="firefox"/>
-    <classes>
-      <class name="testCases.MercuryTourTest_POM"/>
-    </classes>
-  </test> -->
-  <test name="Test">
-  <parameter name="browser" value="Remote"/>
-    <classes>
-      <class name="testCases.MercuryTourTest_POM"/>
-    </classes>
-  </test>
-<!--   <test name="Remote Test">
-    <parameter name="browser" value="Remote"/>
-    <classes>
-      <class name="testCases.MercuryTourTest_POM"/>
-    </classes>
-  </test> -->
+<suite name="Parallel test suite">
+	<test name="Firefox Test">
+		<parameter name="browser" value="firefox" />
+		<parameter name="userName" value="mercury" />
+		<parameter name="password" value="mercury" />
+		<parameter name="fromPort" value="Sydney" />
+		<parameter name="toPort" value="London" />
+		<parameter name="firstName" value="Ivan" />
+		<parameter name="lastName" value="Xue" />
+		<parameter name="creditNumber" value="12345678" />
+		<classes>
+			<class name="testCases.MercuryTourTest_PageFactory" />
+		</classes>
+	</test>
+	<test name="Chrome Test">
+		<parameter name="browser" value="chrome" />
+		<parameter name="userName" value="mercury" />
+		<parameter name="password" value="mercury" />
+		<parameter name="fromPort" value="Sydney" />
+		<parameter name="toPort" value="London" />
+		<parameter name="firstName" value="Ivan" />
+		<parameter name="lastName" value="Xue" />
+		<parameter name="creditNumber" value="12345678" />
+		<classes>
+			<class name="testCases.MercuryTourTest_POM" />
+		</classes>
+	</test>
+	<test name="Remote Test">
+		<parameter name="browser" value="Remote" />
+		<parameter name="userName" value="mercury" />
+		<parameter name="password" value="mercury" />
+		<parameter name="fromPort" value="Sydney" />
+		<parameter name="toPort" value="London" />
+		<parameter name="firstName" value="Ivan" />
+		<parameter name="lastName" value="Xue" />
+		<parameter name="creditNumber" value="12345678" />
+		<classes>
+			<class name="testCases.MercuryTourTest_POM" />
+		</classes>
+	</test>
 </suite>
