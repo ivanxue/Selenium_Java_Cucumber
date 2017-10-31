@@ -24,6 +24,7 @@ public class MercuryTourTest_PageFactory {
 	public void launchBrowser(String browser) throws Exception {
 
 		DOMConfigurator.configure("log4j.xml");
+		Log.startTestCase(this.getClass().getSimpleName());
 
 		driver = Utils.openBrowser(Constant.url, browser);
 	}
