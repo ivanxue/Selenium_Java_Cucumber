@@ -20,10 +20,10 @@ public class Browser {
 
     public static WebDriver driver;
     
-    // remote server configuration in testingbot
-    public static final String KEY = "868c9ff90ed032ecfa27bd48ed89844a";
-    public static final String SECRET = "af37e9afa932c9cb40133a7d28bc4ab0";
-    public static final String URL = "http://" + KEY + ":" + SECRET + "@hub.testingbot.com/wd/hub";
+    // remote server configuration in browserstack
+    public static final String USERNAME = "feng20";
+    public static final String AUTOMATE_KEY = "bxxkpf34hS1BKKyciXr2";
+    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
 
     public static DesiredCapabilities caps = new DesiredCapabilities();
 
@@ -31,29 +31,31 @@ public class Browser {
     public static WebDriver getBrowser(String browserType) throws MalformedURLException {
         switch (browserType) {
             case "firefox":
-                System.setProperty("webdriver.gecko.driver", Constant.driverPath + "geckodriver");
-                return	driver = new FirefoxDriver();
+            System.setProperty("webdriver.gecko.driver", Constant.driverPath + "geckodriver");
+            return	driver = new FirefoxDriver();
             case "chrome":
-            		ChromeOptions options = new ChromeOptions();
-            		options.addArguments("no-sandbox");
-                System.setProperty("webdriver.chrome.driver", Constant.driverPath + "chromedriver");
-                return	driver = new ChromeDriver();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("no-sandbox");
+            System.setProperty("webdriver.chrome.driver", Constant.driverPath + "chromedriver");
+            return	driver = new ChromeDriver();
             case "htmlunit":
-                return	driver = new HtmlUnitDriver();
+            return	driver = new HtmlUnitDriver();
             case "safari":
-                return	driver = new SafariDriver();
+            return	driver = new SafariDriver();
             case "edge":
-                System.setProperty("webdriver.edge.driver", Constant.driverPath + "MicrosoftWebDriver.exe");
-                return	driver = new EdgeDriver();
+            System.setProperty("webdriver.edge.driver", Constant.driverPath + "MicrosoftWebDriver.exe");
+            return	driver = new EdgeDriver();
             case "Remote":
-                caps.setCapability("browserName", "IE");
-                caps.setCapability("version", "11");
-                caps.setCapability("platform", "WIN10");
+            caps.setCapability("browser", "Firefox");
+            caps.setCapability("browser_version", "48.0");
+            caps.setCapability("os", "Windows");
+            caps.setCapability("os_version", "10");
+            caps.setCapability("browserstack.debug", "true");
 
-                return driver = new RemoteWebDriver(new URL(URL), caps);
+            return driver = new RemoteWebDriver(new URL(URL), caps);
             default:
-                System.out.println("browser: " + browserType + " is invalid, Launching Firefox as browser of choice..");
-                return driver = new FirefoxDriver();
+            System.out.println("browser: " + browserType + " is invalid, Launching Firefox as browser of choice..");
+            return driver = new FirefoxDriver();
         }
     }
 }

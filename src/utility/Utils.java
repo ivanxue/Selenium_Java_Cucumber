@@ -12,6 +12,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -28,7 +31,7 @@ public class Utils {
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			Log.info("Implicit wait applied on the driver for 20 seconds");
 
-			driver.manage().window().maximize();
+//			driver.manage().window().maximize();
 
 			driver.get(URL);
 			Log.info("Navigate to " + URL + " successfully");
@@ -44,6 +47,7 @@ public class Utils {
 		System.out.println("Actual Page title: - " + strPageTitle);
 		System.out.println("Expected Page title: - " + expectedPageTitle);
 		Assert.assertTrue(strPageTitle.equalsIgnoreCase(expectedPageTitle), "Page title doesn't match");
+		
 	}
 
 	public static void waitForElement(WebElement element) {
@@ -74,23 +78,13 @@ public class Utils {
 		selectOptions.selectByValue(value);
 	}
 
-	public static String getTestCaseName(String sTestCase) throws Exception {
-		try {
-			int index = sTestCase.indexOf("@");
-			String sTestCasePath = sTestCase.substring(0, index);
-			index = sTestCasePath.lastIndexOf(".");
-			String sTestCaseName = sTestCasePath.substring(index + 1);
-			return sTestCaseName;
-		} catch (Exception error) {
-			Log.error("Class Utils | Method getTestCaseName | Exception desc : " + error.getMessage());
-			throw (error);
-		}
-	}
-
-	public static void takeScreenshot(WebDriver driver, String sTestCaseName) throws Exception {
+	public static void takeScreenshot(WebDriver driver) throws Exception {
+		DateFormat dateFormater = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
+		String timeString = dateFormater.format(new Date());
+		
 		try {
 			File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(scrFile, new File(Constant.Path_ScreenShot + sTestCaseName + ".jpg"));
+			FileUtils.copyFile(scrFile, new File(Constant.Path_ScreenShot + timeString + ".jpg"));
 		} catch (Exception error) {
 			Log.error("Class Utils | Method takeScreenshot | Exception occured while capturing ScreenShot : "
 					+ error.getMessage());

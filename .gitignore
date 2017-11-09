@@ -7,3 +7,4 @@
 /target/maven-status/
 /target/surefire/
 logfile.log
+/target/
