@@ -1,11 +1,10 @@
-package test.java.pages;
+package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import test.java.utility.Log;
-import test.java.utility.Utils;
+import utility.*;
 
 public class MercuryTour_FindFlightsPage extends BasePage {
 	

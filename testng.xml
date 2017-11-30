@@ -10,7 +10,7 @@
 		<parameter name="lastName" value="Xue" />
 		<parameter name="creditNumber" value="12345678" />
 		<classes>
-			<class name="testCases.MercuryTourTest_PageFactory" />
+			<class name="test.java.testCases.MercuryTourTest_PageFactory" />
 		</classes>
 	</test>
 	<test name="Chrome Test">
@@ -23,7 +23,7 @@
 		<parameter name="lastName" value="Xue" />
 		<parameter name="creditNumber" value="12345678" />
 		<classes>
-			<class name="testCases.MercuryTourTest_POM" />
+			<class name="test.java.testCases.MercuryTourTest_POM" />
 		</classes>
 	</test>
 	<test name="Remote Test">
@@ -36,7 +36,7 @@
 		<parameter name="lastName" value="Xue" />
 		<parameter name="creditNumber" value="12345678" />
 		<classes>
-			<class name="testCases.MercuryTourTest_POM" />
+			<class name="test.java.testCases.MercuryTourTest_POM" />
 		</classes>
 	</test>
 </suite>

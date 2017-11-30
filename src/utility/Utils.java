@@ -1,4 +1,4 @@
-package test.java.utility;
+package utility;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;

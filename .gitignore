@@ -1,10 +1,5 @@
 /.idea/
 /.settings/
 /test-output/
-/target/surefire-reports/
-/target/generated-sources/
-/target/maven-archiver/
-/target/maven-status/
-/target/surefire/
-logfile.log
 /target/
+logfile.log

@@ -1,4 +1,4 @@
-package test.java.utility;
+package utility;
 
 /**
  * Created by ivanxue on 11/08/2017.

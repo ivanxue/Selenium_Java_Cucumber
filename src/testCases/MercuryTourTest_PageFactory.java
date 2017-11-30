@@ -6,14 +6,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import test.pageFactory.BookFlightPage;
-import test.java.pageFactory.ConfirmationPage;
-import test.java.pageFactory.FindFlightsPage;
-import test.java.pageFactory.LoginPage;
-import test.java.pageFactory.SelectFlightPage;
-import test.java.utility.Constant;
-import test.java.utility.Log;
-import test.java.utility.Utils;
+import pageFactory.*;
+import utility.*;
 
 public class MercuryTourTest_PageFactory {
 	public static WebDriver driver;
