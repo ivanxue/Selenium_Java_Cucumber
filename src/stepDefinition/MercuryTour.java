@@ -1,14 +1,14 @@
-package stepDefinition;
+package test.java.stepDefinition;
 
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.After;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import pages.BasePage;
-import pages.MercuryTour_LoginPage;
-import utility.Constant;
-import utility.Utils;;
+import test.java.pages.BasePage;
+import test.java.pages.MercuryTour_LoginPage;
+import test.java.utility.Constant;
+import test.java.utility.Utils;;
 
 public class MercuryTour {
 	

@@ -1,11 +1,11 @@
-package pages;
+package test.java.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import utility.Log;
-import utility.Utils;
+import test.java.utility.Log;
+import test.java.utility.Utils;
 
 public class MercuryTour_BookFlightPage extends BasePage {
 	

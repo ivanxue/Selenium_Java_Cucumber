@@ -1,4 +1,4 @@
-package utility;
+package test.java.utility;
 
 import org.apache.log4j.Logger;
 

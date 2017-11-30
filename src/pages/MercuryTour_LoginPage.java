@@ -1,10 +1,10 @@
-package pages;
+package test.java.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import utility.Log;
+import test.java.utility.Log;
 
 public class MercuryTour_LoginPage extends BasePage {
 	

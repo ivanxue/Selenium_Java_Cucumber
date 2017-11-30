@@ -1,11 +1,11 @@
-package pageFactory;
+package test.java.pageFactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import utility.Utils;
+import test.java.utility.Utils;
 
 public class FindFlightsPage {
 	WebDriver driver;

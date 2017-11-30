@@ -7,15 +7,15 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import pages.BasePage;
-import pages.MercuryTour_BookFlightPage;
-import pages.MercuryTour_ConfirmPage;
-import pages.MercuryTour_FindFlightsPage;
-import pages.MercuryTour_LoginPage;
-import pages.MercuryTour_SelectFlightPage;
-import utility.Constant;
-import utility.Log;
-import utility.Utils;
+import test.java.pages.BasePage;
+import test.java.pages.MercuryTour_BookFlightPage;
+import test.java.pages.MercuryTour_ConfirmPage;
+import test.java.pages.MercuryTour_FindFlightsPage;
+import test.java.pages.MercuryTour_LoginPage;
+import test.java.pages.MercuryTour_SelectFlightPage;
+import test.java.utility.Constant;
+import test.java.utility.Log;
+import test.java.utility.Utils;
 
 public class MercuryTourTest_POM {
 	public static WebDriver driver;
