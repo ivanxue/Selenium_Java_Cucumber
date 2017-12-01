@@ -1,5 +1,6 @@
 package stepDefinition;
 
+import cucumber.api.PendingException;
 import org.openqa.selenium.WebDriver;
 
 import cucumber.api.java.After;
@@ -9,38 +10,48 @@ import pages.*;
 import utility.*;
 
 public class MercuryTour {
-	
-	public static WebDriver driver;
-	
-	@Given("^url opened$")
-	public void url_opened() throws Throwable {
-		driver = Utils.openBrowser(Constant.url, "chrome");
-		new BasePage(driver);
-	}
 
-	@Then("^enter user id as \"([^\"]*)\"$")
-	public void enter_user_id(String userName) throws Throwable {
-	    MercuryTour_LoginPage.userNameInput().sendKeys(userName);
-	}
+    public static WebDriver driver;
 
-	@Then("^enter password as \"([^\"]*)\"$")
-	public void enter_password(String password) throws Throwable {
-	    MercuryTour_LoginPage.passwordInput().sendKeys(password);
-	}
+    @Given("^url opened$")
+    public void url_opened() throws Throwable {
+        driver = Utils.openBrowser(Constant.url, "chrome");
+        new BasePage(driver);
+    }
 
-	@Then("^click login$")
-	public void click_login() throws Throwable {
-	    MercuryTour_LoginPage.signInBtn().click();
-	}
+//    @Then("^enter user id as \"([^\"]*)\"$")
+//    public void enter_user_id(String userName) throws Throwable {
+//        MercuryTour_LoginPage.userNameInput().sendKeys(userName);
+//    }
+//
+//    @Then("^enter password as \"([^\"]*)\"$")
+//    public void enter_password(String password) throws Throwable {
+//        MercuryTour_LoginPage.passwordInput().sendKeys(password);
+//    }
 
-	@Then("^close browser$")
-	public void close_browser() throws Throwable {
-	    driver.close();
-	}
-	
-	@After
-	public void tearDown() {
-		driver.quit();
-	}
+    @Then("^click login$")
+    public void click_login() throws Throwable {
+        MercuryTour_LoginPage.signInBtn().click();
+    }
 
+    @Then("^close browser$")
+    public void close_browser() throws Throwable {
+        driver.close();
+    }
+
+    @After
+    public void tearDown() {
+        driver.quit();
+    }
+
+
+    @Then("^enter user id as ([^\"]*)$")
+    public void enterUserIdAsUserName(String userName) throws Throwable {
+        MercuryTour_LoginPage.userNameInput().sendKeys(userName);
+    }
+
+    @Then("^enter password as ([^\"]*)$")
+    public void enterPasswordAsPassword(String password) throws Throwable {
+        MercuryTour_LoginPage.passwordInput().sendKeys(password);
+    }
 }
