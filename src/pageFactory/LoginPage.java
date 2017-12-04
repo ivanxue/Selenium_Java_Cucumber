@@ -9,20 +9,20 @@ public class LoginPage {
 	WebDriver driver;
 	
 	@FindBy(name="userName")
-	WebElement userNameInput;
+	public static WebElement userNameInput;
 	
 	@FindBy(name="password")
-	WebElement passwordInput;
+	public static WebElement passwordInput;
 	
 	@FindBy(name="login")
-	WebElement loginBtn;
+	public static WebElement loginBtn;
 	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void login(String userName, String password) {
+	public static void login(String userName, String password) {
 		userNameInput.sendKeys(userName);
 		passwordInput.sendKeys(password);
 		

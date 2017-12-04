@@ -1,27 +1,12 @@
 Feature: MercuryTour Demo Testing
 
-#  Scenario: MercuryTour Book Flights
-#    Given url opened
-#    Then enter user id as "mercury"
-#    Then enter password as "mercury"
-#    And click login
-#    Then close browser
-#
-#  Scenario: MercuryTour Book Flights
-#    Given url opened
-#    Then enter user id as "abc"
-#    Then enter password as "abc"
-#    And click login
-#    Then close browser
-
   Scenario Outline: MercuryTour Book Flights
-    Given url opened
-    Then enter user id as <userName>
-    Then enter password as <password>
+    Given url opened with browser <browser>
+    When enter user id as <userName>
+    And enter password as <password>
     And click login
-    Then close browser
+    Then select flight form exists
     Examples:
-      | userName | password |
-      | mercury  | mercury  |
-      | abc      | abc      |
-	 
+      | userName | password | browser |
+      | mercury  | mercury  | chrome  |
+      | mercury  | mercury  | firefox |

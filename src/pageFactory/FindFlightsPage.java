@@ -11,26 +11,26 @@ public class FindFlightsPage {
 	WebDriver driver;
 	
 	@FindBy(name="tripType")
-	WebElement tripTypeRadio;
+	public static WebElement tripTypeRadio;
 	
 	@FindBy(name="fromPort")
-	WebElement fromDropdown;
+	public static WebElement fromDropdown;
 	
 	@FindBy(name="toPort")
-	WebElement toDropdown;
+	public static WebElement toDropdown;
 	
 	@FindBy(name="servClass")
-	WebElement servClassRadio;
+	public static WebElement servClassRadio;
 	
 	@FindBy(name="findFlights")
-	WebElement continueFindBtn;
+	public static WebElement continueFindBtn;
 	
 	public FindFlightsPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public void findFlight(String departFrom, String arriveIn) {
+	public static void findFlight(String departFrom, String arriveIn) {
 		Utils.checkByValue("tripType", "oneway");
 		Utils.selectByValue("fromPort", departFrom);
 		Utils.selectByValue("toPort", arriveIn);

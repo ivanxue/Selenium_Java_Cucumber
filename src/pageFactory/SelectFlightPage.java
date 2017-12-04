@@ -9,14 +9,14 @@ public class SelectFlightPage {
 	WebDriver driver;
 	
 	@FindBy(name="reserveFlights")
-	WebElement reserveBtn;
+	public static WebElement reserveBtn;
 	
 	public SelectFlightPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void reserveFlight() {
+	public static void reserveFlight() {
 		reserveBtn.click();
 	}
 

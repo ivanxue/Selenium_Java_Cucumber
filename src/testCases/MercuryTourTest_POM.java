@@ -1,13 +1,13 @@
 package testCases;
 
-import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pages.*;
-import utility.*;
+import utility.Constant;
+import utility.Utils;
 
 public class MercuryTourTest_POM {
 	public static WebDriver driver;
@@ -15,9 +15,6 @@ public class MercuryTourTest_POM {
 	@Parameters({ "browser" })
 	@BeforeClass
 	public void beforeMethod(String browser) throws Exception {
-
-		DOMConfigurator.configure("log4j.xml");
-		Log.startTestCase(this.getClass().getSimpleName());
 
 		driver = Utils.openBrowser(Constant.url, browser);
 		new BasePage(driver);
@@ -73,6 +70,5 @@ public class MercuryTourTest_POM {
 			System.out.println("Closing browser");
 			driver.quit();
 		}
-		Log.endTestCase();
 	}
 }

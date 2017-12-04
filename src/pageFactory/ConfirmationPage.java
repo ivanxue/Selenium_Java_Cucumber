@@ -9,18 +9,17 @@ public class ConfirmationPage {
 	WebDriver driver;
 	
 	@FindBy(xpath="//*/tbody/tr[7]/td/table/tbody/tr/td[2]/a")
-	WebElement backToHomeBtn;
+	public static WebElement backToHomeBtn;
 	
 	@FindBy(xpath="//*/tbody/tr[7]/td/table/tbody/tr/td[3]/a")
-	WebElement logoutBtn;
+	public static WebElement logoutBtn;
 
 	public ConfirmationPage(WebDriver driver) {
-		super();
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void reviewFlight() {
+	public static void reviewFlight() {
 		backToHomeBtn.click();
 	}
 	

@@ -1,57 +1,56 @@
 package stepDefinition;
 
-import cucumber.api.PendingException;
-import org.openqa.selenium.WebDriver;
-
 import cucumber.api.java.After;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import pages.*;
-import utility.*;
+import cucumber.api.java.en.When;
+import org.openqa.selenium.WebDriver;
+import pageFactory.FindFlightsPage;
+import pageFactory.LoginPage;
+import utility.Constant;
+import utility.Utils;
+
+import static org.testng.Assert.assertEquals;
 
 public class MercuryTour {
 
     public static WebDriver driver;
+    public LoginPage loginPage;
+    public FindFlightsPage findFlightsPage;
 
-    @Given("^url opened$")
-    public void url_opened() throws Throwable {
-        driver = Utils.openBrowser(Constant.url, "chrome");
-        new BasePage(driver);
+    @Given("^url opened with browser ([^\"]*)$")
+    public void url_opened(String browser) throws Throwable {
+        driver = Utils.openBrowser(Constant.url, browser);
+        loginPage = new LoginPage(driver);
+        findFlightsPage = new FindFlightsPage(driver);
     }
 
-//    @Then("^enter user id as \"([^\"]*)\"$")
-//    public void enter_user_id(String userName) throws Throwable {
-//        MercuryTour_LoginPage.userNameInput().sendKeys(userName);
-//    }
-//
-//    @Then("^enter password as \"([^\"]*)\"$")
-//    public void enter_password(String password) throws Throwable {
-//        MercuryTour_LoginPage.passwordInput().sendKeys(password);
-//    }
+    @When("^enter user id as ([^\"]*)$")
+    public void enterUserIdAsUserName(String userName) throws Throwable {
+        loginPage.userNameInput.sendKeys(userName);
+    }
 
-    @Then("^click login$")
+    @And("^enter password as ([^\"]*)$")
+    public void enterPasswordAsPassword(String password) throws Throwable {
+        loginPage.passwordInput.sendKeys(password);
+    }
+
+    @And("^click login$")
     public void click_login() throws Throwable {
-        MercuryTour_LoginPage.signInBtn().click();
+        loginPage.loginBtn.click();
     }
 
-    @Then("^close browser$")
-    public void close_browser() throws Throwable {
-        driver.close();
+    @Then("^select flight form exists$")
+    public void selectFlightFormExists() throws Throwable {
+        assertEquals(findFlightsPage.fromDropdown.isDisplayed(), true);
     }
 
     @After
     public void tearDown() {
-        driver.quit();
-    }
+        if(driver != null) {
+            driver.quit();
+        }
 
-
-    @Then("^enter user id as ([^\"]*)$")
-    public void enterUserIdAsUserName(String userName) throws Throwable {
-        MercuryTour_LoginPage.userNameInput().sendKeys(userName);
-    }
-
-    @Then("^enter password as ([^\"]*)$")
-    public void enterPasswordAsPassword(String password) throws Throwable {
-        MercuryTour_LoginPage.passwordInput().sendKeys(password);
     }
 }

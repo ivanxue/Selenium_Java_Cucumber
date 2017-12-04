@@ -9,26 +9,26 @@ public class BookFlightPage {
 	WebDriver driver;
 	
 	@FindBy(name="passFirst0")
-	WebElement firstNameInput;
+	public static WebElement firstNameInput;
 	
 	@FindBy(name="passLast0")
-	WebElement lastNameInput;
+	public static WebElement lastNameInput;
 	
 	@FindBy(name="creditnumber")
-	WebElement creditNumberInput;
+	public static WebElement creditNumberInput;
 	
 	@FindBy(name="ticketLess")
-	WebElement ticketlessTravelCheck;
+	public static WebElement ticketlessTravelCheck;
 	
 	@FindBy(name="buyFlights")
-	WebElement securePurchaseBtn;
+	public static WebElement securePurchaseBtn;
 
 	public BookFlightPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 
-	public void bookFlight(String firstName, String lastName, String creditNumber) {
+	public static void bookFlight(String firstName, String lastName, String creditNumber) {
 		firstNameInput.sendKeys(firstName);
 		lastNameInput.sendKeys(lastName);
 		creditNumberInput.sendKeys(creditNumber);

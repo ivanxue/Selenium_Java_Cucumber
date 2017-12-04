@@ -1,54 +1,76 @@
 package testCases;
 
-import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 import pageFactory.*;
-import utility.*;
+import utility.Constant;
+import utility.Utils;
 
 public class MercuryTourTest_PageFactory {
 	public static WebDriver driver;
+	public LoginPage loginPage;
+	public FindFlightsPage findFlightsPage;
+	public SelectFlightPage selectFlightPage;
+	public BookFlightPage bookFlightPage;
+	public ConfirmationPage confirmationPage;
 
 	@Parameters({ "browser" })
 	@BeforeClass
 	public void launchBrowser(String browser) throws Exception {
 
-		DOMConfigurator.configure("log4j.xml");
-		Log.startTestCase(this.getClass().getSimpleName());
-
 		driver = Utils.openBrowser(Constant.url, browser);
+		loginPage = new LoginPage(driver);
+		findFlightsPage = new FindFlightsPage(driver);
+		selectFlightPage = new SelectFlightPage(driver);
+		bookFlightPage = new BookFlightPage(driver);
+		confirmationPage = new ConfirmationPage(driver);
 	}
 
-	@Parameters({ "userName", "password", "fromPort", "toPort", "firstName", "lastName", "creditNumber"})
-	@Test
-	public void main(String userName, String password, String fromPort, String toPort, String firstName, String lastName, String creditNumber) throws Exception {
-			
-			LoginPage objLogin = new LoginPage(driver);
-			FindFlightsPage objFindFlight = new FindFlightsPage(driver);
-			SelectFlightPage objSelectFlight = new SelectFlightPage(driver);
-			BookFlightPage objBookFlight = new BookFlightPage(driver);
-			ConfirmationPage objConfirmFlight = new ConfirmationPage(driver);
+	@Parameters({ "userName", "password" })
+	@Test(priority=1)
+	public void login(String userName, String password) throws Exception {
 
-			Utils.validPageTitle("Welcome: Mercury Tours");
+		// wait the page to be loaded completely and verify the page title
+		Utils.waitForElement(loginPage.userNameInput);
+		Utils.validPageTitle("Welcome: Mercury Tours");
 
-			objLogin.login(userName, password);
-			Utils.validPageTitle("Find a Flight: Mercury Tours:");
+		LoginPage.login(userName, password);
 
-			objFindFlight.findFlight(fromPort, toPort);
-			Utils.validPageTitle("Select a Flight: Mercury Tours");
+		Utils.waitForElement(findFlightsPage.tripTypeRadio);
+		Utils.validPageTitle("Find a Flight: Mercury Tours:");
+	}
 
-			objSelectFlight.reserveFlight();
-			Utils.validPageTitle("Book a Flight: Mercury Tours");
+	@Parameters({ "fromPort", "toPort" })
+	@Test(priority=2)
+	public void findFlight(String fromPort, String toPort) throws Exception {
 
-			objBookFlight.bookFlight(firstName, lastName, creditNumber);
-			Utils.validPageTitle("Flight Confirmation: Mercury Tours");
-			
-			objConfirmFlight.reviewFlight();
-			
-		
+		findFlightsPage.findFlight(fromPort, toPort);
+
+		Utils.waitForElement(selectFlightPage.reserveBtn);
+		Utils.validPageTitle("Select a Flight: Mercury Tours");
+
+		selectFlightPage.reserveFlight();
+
+		Utils.waitForElement(bookFlightPage.firstNameInput);
+		Utils.validPageTitle("Book a Flight: Mercury Tours");
+	}
+
+	@Parameters({ "firstName", "lastName", "creditNumber" })
+	@Test(priority=3)
+	public void selectFlight(String firstName, String lastName, String creditNumber) throws Exception {
+
+		bookFlightPage.bookFlight(firstName, lastName, creditNumber);
+
+		Utils.waitForElement(confirmationPage.backToHomeBtn);
+		Utils.validPageTitle("Flight Confirmation: Mercury Tours");
+	}
+
+	@Test(priority=4)
+	public void confirmFlight() throws Exception {
+		confirmationPage.reviewFlight();
 	}
 
 	@AfterClass
@@ -57,6 +79,5 @@ public class MercuryTourTest_PageFactory {
 			System.out.println("Closing browser");
 			driver.close();
 		}
-		Log.endTestCase();
 	}
 }
