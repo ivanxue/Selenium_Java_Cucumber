@@ -5,7 +5,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-import pageFactory.*;
+import pageObjects.*;
 import utility.Constant;
 import utility.Utils;
 
@@ -31,7 +31,7 @@ public class MercuryTourTest_PageFactory {
 
 	@Parameters({ "userName", "password" })
 	@Test(priority=1)
-	public void login(String userName, String password) throws Exception {
+	public void login(String userName, String password) {
 
 		// wait the page to be loaded completely and verify the page title
 		Utils.waitForElement(loginPage.userNameInput);
@@ -45,7 +45,7 @@ public class MercuryTourTest_PageFactory {
 
 	@Parameters({ "fromPort", "toPort" })
 	@Test(priority=2)
-	public void findFlight(String fromPort, String toPort) throws Exception {
+	public void findFlight(String fromPort, String toPort) {
 
 		findFlightsPage.findFlight(fromPort, toPort);
 
@@ -69,12 +69,12 @@ public class MercuryTourTest_PageFactory {
 	}
 
 	@Test(priority=4)
-	public void confirmFlight() throws Exception {
+	public void confirmFlight() {
 		confirmationPage.reviewFlight();
 	}
 
 	@AfterClass
-	public static void tearDown() throws Exception {
+	public static void tearDown() {
 		if (driver != null) {
 			System.out.println("Closing browser");
 			driver.close();
