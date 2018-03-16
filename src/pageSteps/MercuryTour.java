@@ -1,10 +1,13 @@
 package pageSteps;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import pageObjects.FindFlightsPage;
 import pageObjects.LoginPage;
@@ -47,9 +50,15 @@ public class MercuryTour {
     }
 
     @After
-    public void tearDown() {
-        if(driver != null) {
+    public void tearDown(Scenario scenario) {
+        try {
+            if (scenario.isFailed()) {
+                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                scenario.embed(screenshot, "image/png");
+            }
             driver.quit();
+        } catch (Exception e) {
+            System.out.println("Exception while running Tear down: " + e.getMessage());
         }
     }
 }
