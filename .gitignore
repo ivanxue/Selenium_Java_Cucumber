@@ -5,3 +5,5 @@
 logfile.log
 Selenium.iml
 Selenium_Java_Cucumber.iml
+.DS_Store
+src/.DS_Store
