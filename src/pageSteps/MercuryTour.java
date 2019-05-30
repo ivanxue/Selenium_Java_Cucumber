@@ -23,7 +23,7 @@ public class MercuryTour {
     public FindFlightsPage findFlightsPage;
 
     @Given("^url opened with browser ([^\"]*)$")
-    public void url_opened(String browser) throws Throwable {
+    public void url_opened(String browser) {
         driver = Utils.openBrowser(Constant.url, browser);
         loginPage = new LoginPage(driver);
         findFlightsPage = new FindFlightsPage(driver);

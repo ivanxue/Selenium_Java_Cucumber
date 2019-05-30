@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class Utils {
     public static WebDriver driver = null;
 
-    public static WebDriver openBrowser(String URL, String browserName) throws Exception {
+    public static WebDriver openBrowser(String URL, String browserName) {
         try {
 
             driver = Browser.getBrowser(browserName);

@@ -9,7 +9,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -48,14 +47,12 @@ public class Browser {
                     System.setProperty("webdriver.chrome.driver", Constant.driverPath + "chromedriver.exe");
                 }
                 return driver = new ChromeDriver();
-            case "htmlunit":
-                return driver = new HtmlUnitDriver();
             case "safari":
                 return driver = new SafariDriver();
             case "edge":
                 System.setProperty("webdriver.edge.driver", Constant.driverPath + "MicrosoftWebDriver.exe");
                 return driver = new EdgeDriver();
-            case "Remote":
+            case "remote":
                 caps.setCapability("browser", "Firefox");
                 caps.setCapability("browser_version", "48.0");
                 caps.setCapability("os", "Windows");
