@@ -46,19 +46,11 @@ public class MercuryTour {
 
     @Then("^select flight form exists$")
     public void selectFlightFormExists() {
-        assertEquals(FindFlightsPage.fromDropdown.isDisplayed(), true);
+        assertEquals(FindFlightsPage.fromDropdown.isDisplayed(), false);
     }
 
     @After
     public void tearDown(Scenario scenario) {
-        try {
-            if (scenario.isFailed()) {
-                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-                scenario.embed(screenshot, "image/png");
-            }
-            driver.quit();
-        } catch (Exception e) {
-            System.out.println("Exception while running Tear down: " + e.getMessage());
-        }
+        Utils.takeScreenshot(driver, scenario);
     }
 }

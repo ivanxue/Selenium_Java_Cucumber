@@ -6,7 +6,7 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
 
 //@RunWith(Cucumber.class)
 @CucumberOptions(
-		features = {"features"},
+		features = {"features/MercuryTour.feature"},
 		glue = {"pageSteps"},
 //		plugin = {"pretty", "html:target/cucumber"},
 		format = {"json:target/cucumber.json","html:target/cucumber-pretty"}

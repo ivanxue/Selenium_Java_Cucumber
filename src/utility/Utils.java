@@ -1,21 +1,13 @@
 package utility;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.By;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import cucumber.api.Scenario;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import java.io.File;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -76,15 +68,15 @@ public class Utils {
         selectOptions.selectByValue(value);
     }
 
-    public static void takeScreenshot(WebDriver driver) throws Exception {
-        DateFormat dateFormater = new SimpleDateFormat("yyyyMMdd-HH:mm:ss");
-        String timeString = dateFormater.format(new Date());
-
+    public static void takeScreenshot(WebDriver driver, Scenario scenario) {
         try {
-            File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(scrFile, new File(Constant.Path_ScreenShot + timeString + ".jpg"));
-        } catch (Exception error) {
-            throw new Exception();
+            if (scenario.isFailed()) {
+                final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+                scenario.embed(screenshot, "image/png");
+            }
+            driver.quit();
+        } catch (Exception e) {
+            System.out.println("Exception while running Tear down: " + e.getMessage());
         }
     }
 }

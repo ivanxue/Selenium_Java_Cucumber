@@ -8,5 +8,4 @@ Feature: MercuryTour Demo Testing
     Then select flight form exists
     Examples:
       | userName | password | browser |
-      | mercury  | mercury  | remote  |
       | mercury  | mercury  | chrome  |
